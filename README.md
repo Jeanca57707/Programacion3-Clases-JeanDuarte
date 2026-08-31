@@ -1,2 +1,2 @@
-# Duarte-Jean-java-TareasDelSemestre
-Acá se colocarán todas las tareas puestas en clases o en la semana del semestre 3-2026
+# Duarte-Jean-java-TareasEnClases
+Acá se subirán todas las tareas colocadas en clases del semestre 3-2026
