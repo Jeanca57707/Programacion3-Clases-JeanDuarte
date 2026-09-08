@@ -19,10 +19,10 @@ public static void main(String[] args) {
     for( Vehiculo v : vehiculos){
 
         System.out.println("\n");
+        System.out.println(v.toString());
         if( v instanceof Camion){
           System.out.println(v.getMarca() + " Esta implentando Cargable");
         }
-        System.out.println(v.toString());
         v.conducir();
         v.getClass();
         System.out.println("\n");
