@@ -13,18 +13,18 @@ public class Main{
         double [] promedio = calcularPromedio(parcial1, parcial2, parcial3);
         String [] estados = estados(promedio);
 
-        System.out.println("NOMBRE\t\tPROMEDIO\tESTADO");
+        System.out.println("\nNOMBRE\t\tPROMEDIO\tESTADO\n");
         for(int i = 0; i < nombres.length; i++){
 
             System.out.printf("%s\t%.2f\t\t%s%n",nombres[i] ,promedio[i] ,estados[i]);
 
         }
 
-        System.out.println("\nEstadisticas del grupo\n");
-
-
-
-
+        System.out.println("\nEstadisticas del grupo:\n");
+        System.out.printf("Promedio general: " +"%.2f%n", promedioGeneral(promedio));
+        System.out.println("Estudainte con el promedio mas alto: " + promedioGrande(promedio, nombres));
+        System.out.println("Estudiante con el menor promedio: "+ promedioMenor(promedio, nombres));
+        cantidadAprobados_Reprob(promedio);
 
     }
 
@@ -72,22 +72,45 @@ public class Main{
     public static String promedioGrande(double[]p, String[]n){
 
         double mejor = p[0];
+        int num = 0;
         for (int i = 0; i < p.length;i++){
             if(p[i] > mejor){
                 mejor = p[i];
+                num = i;
             }
         }
-        return n[1];
+        return n[num];
     }
     public static String promedioMenor(double[]p, String[]n){
 
         double menor = p[0];
+        int num = 0;
         for (int i = 0; i < p.length;i++){
             if(p[i] < menor){
                 menor = p[i];
+                num = i;
             }
         }
-        return n[1];
+        return n[num];
+    }
+
+    public static void cantidadAprobados_Reprob(double[] promedio){
+
+       int aprobados = 0;
+       int reprobados = 0;
+
+       for (double p: promedio){
+
+        if(p >= 6.0){
+            aprobados++;
+        }
+        else{
+            reprobados++;
+        }
+       }
+
+       System.out.println("\nCantidad de Aprobados: " + aprobados);
+       System.out.println("\nCantidad de Reprobados: " + reprobados);
     }
 
 }
