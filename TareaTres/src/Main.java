@@ -26,6 +26,12 @@ public class Main{
         System.out.println("Estudiante con el menor promedio: "+ promedioMenor(promedio, nombres));
         cantidadAprobados_Reprob(promedio);
 
+        System.out.println("\nFiltro por correo:\n");
+
+        filtrarPorCorreo(correos, nombres);
+
+        System.out.println("\n"+ buscarEstudiantePorNombre(nombres, "lopez"));
+
     }
 
     public static double[] calcularPromedio(double[]a, double[]b, double[]c){
@@ -111,6 +117,29 @@ public class Main{
 
        System.out.println("\nCantidad de Aprobados: " + aprobados);
        System.out.println("\nCantidad de Reprobados: " + reprobados);
+    }
+
+    public static void filtrarPorCorreo(String[]correos, String[]nombres){
+
+        for (int i = 0; i < correos.length; i++){
+
+            if(correos[i].contains("@ucne.edu")){
+
+                System.out.println(nombres[i].toUpperCase() + " - " + correos[i]);
+            }
+        }
+    }
+
+    public static String buscarEstudiantePorNombre(String[]nombres, String nombre){
+
+        for(int i = 0; i < nombres.length; i++){
+
+            if(nombres[i].toLowerCase().contains(nombre.toLowerCase())){
+
+                return nombres[i];
+            }
+        }
+        return "-1";
     }
 
 }
