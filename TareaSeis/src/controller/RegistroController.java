@@ -81,7 +81,7 @@ public class RegistroController {
                 mensaje.setText("Seleccione una categoría");
                 return;
             }
-            String categoria = String.valueOf(categorias.getValue());
+            Categoria categoria = categorias.getSelectionModel().getSelectedItem();
 
             Producto producto = new Producto(nombre, categoria, precio, cantidad);
             Datos.productos().add(producto);

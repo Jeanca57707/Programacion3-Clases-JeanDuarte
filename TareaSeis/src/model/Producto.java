@@ -3,11 +3,11 @@ package model;
 public class Producto {
 
     private String nombrePr;
-    private String categoria;
+    private Categoria categoria;
     private double precio;
     private int cantidadDis;
 
-    public Producto(String nombrePr, String categoria, double precio, int cantidadDis) {
+    public Producto(String nombrePr, Categoria categoria, double precio, int cantidadDis) {
         this.nombrePr = nombrePr;
         this.categoria = categoria;
         this.precio = precio;
@@ -16,7 +16,7 @@ public class Producto {
     public String getNombrePr() {
         return nombrePr;
     }
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
     public double getPrecio() {
@@ -25,4 +25,5 @@ public class Producto {
     public int getCantidadDis() {
         return cantidadDis;
     } 
+
 }
