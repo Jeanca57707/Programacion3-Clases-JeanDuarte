@@ -32,7 +32,7 @@
             <ComboBox fx:id="categorias" prefHeight="25.0" prefWidth="185.0" />
             <TextField fx:id="precioTxt" />
             <TextField fx:id="cantidadTxt" />
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="85.0" text="Guardar" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="80.0" text="Guardar" />
             <Label fx:id="mensaje" prefHeight="22.0" prefWidth="250.0" text="Label">
                <padding>
                   <Insets left="5.0" />
@@ -49,8 +49,8 @@
    <bottom>
       <HBox prefHeight="42.0" prefWidth="471.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnAdministrar" mnemonicParsing="false" onAction="#administrar" prefHeight="25.0" prefWidth="85.0" text="Administrar" />
-            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="85.0" text="Consultar" />
+            <Button fx:id="btnAdministrar" mnemonicParsing="false" onAction="#administrar" prefHeight="25.0" prefWidth="80.0" text="Administrar" />
+            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="80.0" text="Consultar" />
          </children>
          <padding>
             <Insets left="50.0" right="10.0" />
