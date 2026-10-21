@@ -19,9 +19,6 @@ public class RegistroController {
     private Button btnConsultar;
 
     @FXML
-    private Label lblCantidad;
-
-    @FXML
     private TextField precioTxt;
 
     @FXML
@@ -38,15 +35,18 @@ public class RegistroController {
         nombreTxt.setPromptText("Nombre");
         precioTxt.setPromptText("Precio");
         cantidadTxt.setPromptText("Cantidad");
-        lblCantidad.setText("Cantidad de productos agregados: " + Datos.productos().size());
+        //btnAdministrar.setText("Administrar");
+        //btnConsultar.setText("Consultar");
+        //btnGuardar.setText("Guardar");
         categorias.setItems(Datos.categorias());
         if (!categorias.getItems().isEmpty()) {
             categorias.getSelectionModel().selectFirst();
         }
+        mensaje.setText("");
     }
 
     @FXML
-    private void administar() {
+    private void administrar() {
         Ventanas.abrir("Administrar", "Administrar categorias", btnAdministrar.getScene().getWindow());
     }
 
@@ -85,7 +85,11 @@ public class RegistroController {
 
             Producto producto = new Producto(nombre, categoria, precio, cantidad);
             Datos.productos().add(producto);
-            lblCantidad.setText("Cantidad de productos agregados: " + Datos.productos().size());
+            mensaje.setText("Cantidad de productos agregados: " + Datos.productos().size());
+
+            nombreTxt.clear();
+            precioTxt.clear();
+            cantidadTxt.clear();
 
         } catch (NumberFormatException e) {
             mensaje.setText("Ingrese números válidos.");

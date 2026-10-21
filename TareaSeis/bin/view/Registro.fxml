@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Registro de Productos" textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets left="20.0" top="45.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER_LEFT" prefHeight="258.0" prefWidth="352.0" spacing="15.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <TextField fx:id="nombreTxt" prefHeight="25.0" prefWidth="306.0" />
+            <ComboBox fx:id="categorias" prefHeight="25.0" prefWidth="185.0" />
+            <TextField fx:id="precioTxt" />
+            <TextField fx:id="cantidadTxt" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="85.0" text="Guardar" />
+            <Label fx:id="mensaje" prefHeight="22.0" prefWidth="250.0" text="Label">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+         </children>
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets right="150.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="42.0" prefWidth="471.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdministrar" mnemonicParsing="false" onAction="#administrar" prefHeight="25.0" prefWidth="85.0" text="Administrar" />
+            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="85.0" text="Consultar" />
+         </children>
+         <padding>
+            <Insets left="50.0" right="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

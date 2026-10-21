@@ -11,4 +11,9 @@ public class Categoria {
     public String getNomCat() {
         return nomCat;
     }
+    
+    @Override 
+    public String toString(){
+        return nomCat;
+    }
 }

@@ -15,7 +15,7 @@ public final class Ventanas {
         try {
             FXMLLoader loader = new FXMLLoader(Ventanas.class.getResource("/view/" + archivo + ".fxml"));
             Scene scene = new Scene(loader.load());
-            scene.getStylesheets().add(Ventanas.class.getResource("/css/estilos.css").toExternalForm());
+            //scene.getStylesheets().add(Ventanas.class.getResource("/css/estilos.css").toExternalForm());
             Stage ventana = new Stage();
             ventana.setTitle(titulo);
             ventana.initOwner(propietario);

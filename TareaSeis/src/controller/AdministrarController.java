@@ -29,23 +29,21 @@ public class AdministrarController {
 
         categorias.setItems(Datos.categorias());
         txtNuevaCat.setPromptText("Nombre de la nueva categoria");
-        btnAgregarCat.setText("Agregar");
-        btnEliminar.setText("Eliminar");
-        btnCerrar.setText("Cerrar");
         mensaje.setText("");
     }
     @FXML 
     private void agregarCat(){
 
-        if(txtNuevaCat.getText().trim().isEmpty()){
+        String nuevaCategoria = txtNuevaCat.getText().trim().toLowerCase();
+
+        if(nuevaCategoria.isEmpty()){
             mensaje.setText("Escriba una categoria primero");
             return;
         }
-        String nuevaCategoria = txtNuevaCat.getText().trim().toLowerCase();
-
+       
         for(Categoria c : categorias.getItems()){
 
-            String cat = c.getNomCat().trim().toLowerCase();
+            String cat = c.toString();
             if(nuevaCategoria.equals(cat)){
                 mensaje.setText("Esta categoría ya se encuentra agregada");
                 return;
@@ -54,6 +52,7 @@ public class AdministrarController {
         Categoria newCat = new Categoria(nuevaCategoria);
         Datos.categorias().add(newCat);
         mensaje.setText("Categoria agregada correctamente");
+        txtNuevaCat.clear();
     }
 
     @FXML 
@@ -66,6 +65,7 @@ public class AdministrarController {
         Datos.categorias().remove(eliminar);
         mensaje.setText("Categoria eliminada");
     }
+
     @FXML 
     private void close(){
         categorias.getScene().getWindow().hide();
