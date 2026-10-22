@@ -1,0 +1,33 @@
+.root{
+    -fx-background-color: #f5f0e6 ;
+}
+
+.button{
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #264653;
+    -fx-font-family: "Poppins";
+    -fx-font-weight: bold;
+
+}
+
+.barra-turquesa{
+    -fx-background-color: #d9f3ef;
+}
+
+.label{
+    -fx-font-family: "Poppins";
+}
+
+.text-field{
+    -fx-font-family: "Poppins";
+    -fx-background-radius: 5;
+}
+
+.combo-box{
+    -fx-font-family: "Poppins";
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+}
+

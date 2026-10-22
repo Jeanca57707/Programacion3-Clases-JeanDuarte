@@ -38,6 +38,9 @@ public class ConsultarController {
     private Button btnCerrar;
 
     @FXML 
+    private Button btnTodos;
+
+    @FXML 
     private Label mensaje;
 
     @FXML 
@@ -54,7 +57,7 @@ public class ConsultarController {
         precioProd.setCellValueFactory(c-> new ReadOnlyDoubleWrapper(c.getValue().getPrecio()).asObject());
         cantidadProd.setCellValueFactory(c-> new ReadOnlyIntegerWrapper(c.getValue().getCantidadDis()).asObject());
         filtrados = new FilteredList<>(Datos.productos(), c-> true);
-        productos.setItems(Datos.productos());
+        productos.setItems(filtrados);
         valorTotal.setText("Valor total: " + String.format("RD$%.2f", calcularTotal()));
         mensaje.setText("");
         categorias.setItems(Datos.categorias());
@@ -89,14 +92,23 @@ public class ConsultarController {
     }
 
     @FXML 
-    private void filtrarPorCat(){
+    private void filtrarPorCat(){ 
         Categoria categoria = categorias.getSelectionModel().getSelectedItem();
+       
         if(categoria == null){
             filtrados.setPredicate(c-> true);
             mensaje.setText("Categoria inválida");
             return;
         }
-        filtrados.setPredicate(c-> categoria.equals(c.getCategoria()));
+        filtrados.setPredicate(c-> c.getCategoria().equals(categoria));
+        mensaje.setText("");
+    }
+
+    @FXML 
+    private void mostrarTodos(){
+        filtrados.setPredicate(null);
+        categorias.getSelectionModel().clearSelection();
+        mensaje.setText("");
     }
 
     @FXML

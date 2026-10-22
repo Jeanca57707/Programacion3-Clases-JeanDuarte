@@ -1,18 +1,17 @@
-## Getting Started
+## Gestor de Productos
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Estudiante
+Jean Carlos Duarte Inoa
 
-## Folder Structure
+# Matrícula
+1000-4342
 
-The workspace contains two folders by default, where:
+# Materia
+Programación 3
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Descripción
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Este es un programa para gestionar productos de un mercado. Te permite agregar nuevos productos, administrar las categorías; tanto como visualizar todas, agregar o eliminar categorías. Puedes también consultar los productos que has agregado en una tabla que muestran sus nombres, categorías, precios y cantidades; puedes eliminar productos de esa tabla y puede filtrar los productos por categoría.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Tecnologías Usadas
+-Visual Studio Code -JavaFX v26.0.1 -JDK v26.0.1

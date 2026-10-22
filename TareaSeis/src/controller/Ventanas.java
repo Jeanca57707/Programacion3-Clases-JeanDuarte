@@ -12,17 +12,17 @@ public final class Ventanas {
     }
 
     public static void abrir(String archivo, String titulo, Window propietario) {
-        try {
+        try{
             FXMLLoader loader = new FXMLLoader(Ventanas.class.getResource("/view/" + archivo + ".fxml"));
             Scene scene = new Scene(loader.load());
-            //scene.getStylesheets().add(Ventanas.class.getResource("/css/estilos.css").toExternalForm());
+            scene.getStylesheets().add(Ventanas.class.getResource("/css/estilos.css").toExternalForm());
             Stage ventana = new Stage();
             ventana.setTitle(titulo);
             ventana.initOwner(propietario);
             ventana.initModality(Modality.WINDOW_MODAL);
             ventana.setScene(scene);
             ventana.showAndWait();
-        } catch (IOException ex) {
+        }catch (IOException ex) {
             throw new IllegalStateException("No se pudo abrir " + archivo, ex);
         }
     }

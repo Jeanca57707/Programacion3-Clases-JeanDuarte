@@ -12,9 +12,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Registro.fxml")));
+            scene.getStylesheets().add(getClass().getResource("css/estilos.css").toExternalForm());
             stage.setTitle("Registro de productos");
             stage.setScene(scene);
             stage.show();

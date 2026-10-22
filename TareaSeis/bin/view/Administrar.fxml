@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdministrarController">
    <top>
-      <HBox prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="76.0" prefWidth="600.0" styleClass="barra-turquesa" BorderPane.alignment="CENTER">
          <children>
             <Label text="Administrador de categorias">
                <padding>
@@ -26,7 +26,7 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="26.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER_RIGHT">
+      <HBox prefHeight="26.0" prefWidth="590.0" spacing="20.0" styleClass="barra-turquesa" BorderPane.alignment="CENTER_RIGHT">
          <children>
             <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCat" prefHeight="25.0" prefWidth="80.0" text="Eliminar" />
             <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="80.0" text="Cerrar" />
@@ -40,8 +40,11 @@
             </Label>
          </children>
          <BorderPane.margin>
-            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            <Insets />
          </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="21.0" top="5.0" />
+         </padding>
       </HBox>
    </bottom>
    <center>

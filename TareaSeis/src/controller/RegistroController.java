@@ -28,21 +28,18 @@ public class RegistroController {
     private TextField nombreTxt;
 
     @FXML
-    private Label mensaje;
+    private Label lblMensaje;
 
     @FXML
     private void initialize() {
         nombreTxt.setPromptText("Nombre");
         precioTxt.setPromptText("Precio");
         cantidadTxt.setPromptText("Cantidad");
-        //btnAdministrar.setText("Administrar");
-        //btnConsultar.setText("Consultar");
-        //btnGuardar.setText("Guardar");
         categorias.setItems(Datos.categorias());
         if (!categorias.getItems().isEmpty()) {
             categorias.getSelectionModel().selectFirst();
         }
-        mensaje.setText("");
+        lblMensaje.setText("");
     }
 
     @FXML
@@ -61,7 +58,7 @@ public class RegistroController {
         String nombre = nombreTxt.getText().trim();
 
         if (nombre.isEmpty() || precioTxt.getText().trim().isEmpty() || cantidadTxt.getText().trim().isEmpty()) {
-            mensaje.setText("No puedes dejar campos vacíos");
+            lblMensaje.setText("No puedes dejar campos vacíos");
             return;
         }
 
@@ -70,29 +67,30 @@ public class RegistroController {
             int cantidad = Integer.parseInt(cantidadTxt.getText().trim());
 
             if (cantidad <= 0) {
-                mensaje.setText("Cantidad inválida");
+                lblMensaje.setText("Cantidad inválida");
                 return;
             }
             if (precio <= 0) {
-                mensaje.setText("Precio invalido");
+                lblMensaje.setText("Precio invalido");
                 return;
             }
             if (categorias.getValue() == null) {
-                mensaje.setText("Seleccione una categoría");
+                lblMensaje.setText("Seleccione una categoría");
                 return;
             }
             Categoria categoria = categorias.getSelectionModel().getSelectedItem();
 
             Producto producto = new Producto(nombre, categoria, precio, cantidad);
             Datos.productos().add(producto);
-            mensaje.setText("Cantidad de productos agregados: " + Datos.productos().size());
+            lblMensaje.setText("Cantidad de productos agregados: " + Datos.productos().size());
 
             nombreTxt.clear();
             precioTxt.clear();
             cantidadTxt.clear();
+            categorias.getSelectionModel().clearSelection();
 
         } catch (NumberFormatException e) {
-            mensaje.setText("Ingrese números válidos.");
-        }
+            lblMensaje.setText("Ingrese números válidos.");
+        } 
     }
 }

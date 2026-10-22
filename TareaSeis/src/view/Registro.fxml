@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistroController">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="84.0" prefWidth="471.0" styleClass="barra-turquesa" BorderPane.alignment="CENTER">
          <children>
             <Label text="Registro de Productos" textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
                <padding>
@@ -32,8 +32,8 @@
             <ComboBox fx:id="categorias" prefHeight="25.0" prefWidth="185.0" />
             <TextField fx:id="precioTxt" />
             <TextField fx:id="cantidadTxt" />
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="80.0" text="Guardar" />
-            <Label fx:id="mensaje" prefHeight="22.0" prefWidth="250.0" text="Label">
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="70.0" text="Guardar" />
+            <Label fx:id="lblMensaje" prefHeight="22.0" prefWidth="250.0" text="Label">
                <padding>
                   <Insets left="5.0" />
                </padding></Label>
@@ -47,13 +47,13 @@
       </VBox>
    </center>
    <bottom>
-      <HBox prefHeight="42.0" prefWidth="471.0" spacing="40.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="42.0" prefWidth="471.0" spacing="15.0" styleClass="barra-turquesa" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnAdministrar" mnemonicParsing="false" onAction="#administrar" prefHeight="25.0" prefWidth="80.0" text="Administrar" />
+            <Button fx:id="btnAdministrar" mnemonicParsing="false" onAction="#administrar" prefHeight="25.0" prefWidth="85.0" text="Administrar" />
             <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="80.0" text="Consultar" />
          </children>
          <padding>
-            <Insets left="50.0" right="10.0" />
+            <Insets left="50.0" top="9.0" />
          </padding>
       </HBox>
    </bottom>
