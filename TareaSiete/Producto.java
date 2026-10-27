@@ -64,11 +64,10 @@ public class Producto {
 
         try {
             if (inventario.createNewFile()) {
-                System.out.println("El archivo fue creado.");
+                System.out.println("El archivo fue creado.\n");
             } else {
-                System.out.println("El archivo ya existe");
+                System.out.println("El archivo ya existe.\n");
             }
-            sc.nextLine();
 
             System.out.print("Codigo del producto: ");
             String codigo = sc.nextLine();
@@ -83,7 +82,7 @@ public class Producto {
             int cantidad = sc.nextInt();
 
             if (verificarCodigo(codigo)) {
-                System.out.println("Ya ahí un producto con este código");
+                System.out.println("\nYa hay un producto con este código");
                 return;
             }
 
@@ -93,10 +92,10 @@ public class Producto {
             }
             Producto producto = new Producto(codigo, nombre, precio, cantidad);
             productos.add(producto);
-            System.out.println("¡Producto registrado correctamente!");
+            System.out.println("\n¡Producto registrado correctamente!");
 
         } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("\nError: " + e.getMessage());
         }
     }
 
@@ -114,35 +113,34 @@ public class Producto {
 
         try {
             if (inventario.length() == 0) {
-                System.out.println("El archivo esta vacio");
+                System.out.println("\nEl archivo esta vacio");
             } else {
                 System.out.println("\nProductos del inventario: \n");
+                System.out.printf("%-15s\t%-25s\t%-20s\t%-15s\n", "CODIGO", "NOMBRE", "PRECIO", "CANTIDAD");
                 try (BufferedReader br = new BufferedReader(new FileReader(inventario))) {
 
                     String linea;
                     while ((linea = br.readLine()) != null) {
-
-                        System.out.println(linea);
+                        leerProducto(linea);
                     }
                 }
 
             }
         } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("\nError: " + e.getMessage());
         }
     }
 
     // Método para buscar un producto en el archivo
     public void busquedaDeProducto(Scanner sc) {
-
-        sc.nextLine();
+        
         boolean encontrado = false;
-        System.out.print("Código del producto: ");
+        System.out.print("\nCódigo del producto: ");
         String codProd = sc.nextLine();
 
         try {
             if (inventario.length() == 0) {
-                System.out.println("El inventario esta vacio");
+                System.out.println("\nEl inventario esta vacio");
 
             } else {
 
@@ -150,9 +148,10 @@ public class Producto {
 
                     String linea;
                     while ((linea = br.readLine()) != null) {
-                        if (linea.contains(codProd)) {
-                            System.out.println("¡Producto encontrado!");
-                            System.out.println(linea);
+                        if (linea.toLowerCase().contains(codProd.toLowerCase())) {
+                            System.out.println("\n¡Producto encontrado!\n");
+                            System.out.printf("%-15s\t%-25s\t%-20s\t%-15s\n", "CODIGO", "NOMBRE", "PRECIO", "CANTIDAD");
+                            leerProducto(linea);
                             encontrado = true;
                             break;
                         }
@@ -192,8 +191,18 @@ public class Producto {
         return valorTotal;
     }
 
-    public void crearCopia(){
+    public void leerProducto(String cadena) {
+        String[] producto = cadena.split("; ");
+        try {
+            double precio = Double.parseDouble(producto[2]);
+            System.out.printf("%-15s\t%-25s\tRD$%-20.2f\t%-15s\n", producto[0], producto[1], precio, producto[3]);
 
-        
+        } catch (NumberFormatException e) {
+            System.out.println("\nError: " + e.getMessage());
+        }
+    }
+
+    public void crearCopia() {
+
     }
 }

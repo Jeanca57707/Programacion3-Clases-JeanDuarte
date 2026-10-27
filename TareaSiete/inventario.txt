@@ -1,2 +1,4 @@
 P301; Laptop HP ProoBook; 30000.0; 20
 A204; Mouse; 1500.0; 30
+W345; Monitor ASUS; 12000.0; 10
+G234; iPhone 17; 40000.0; 15

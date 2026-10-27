@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +28,7 @@ public class Main {
 
             try {
                 opc = sc.nextInt();
+                sc.nextLine();
 
                 switch (opc) {
                     case 1:
@@ -34,7 +36,7 @@ public class Main {
                         break;
 
                     case 2:
-                        producto.consultarINventario();
+                        producto.consultarInventario();
                         break;
 
                     case 3:
@@ -59,11 +61,10 @@ public class Main {
                         break;
                 }
                 
-            } catch (NumberFormatException e) {
-                System.out.println("Ingrese un número válido");
+            } catch (InputMismatchException e) {
+                System.out.println("\nIngrese un número válido");
+                sc.nextLine();
             }
-
         } while (opc != 7);
-
     }
 }
