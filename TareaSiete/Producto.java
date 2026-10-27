@@ -1,20 +1,25 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Producto {
+public class Producto implements Serializable {
 
     private String codigo;
     private String nombre;
     private double precio;
     private int cantidad;
     private static ArrayList<Producto> productos = new ArrayList<>();
-    private static File inventario = new File("inventario.txt");
+    private static final File inventario = new File("inventario.txt");
 
     public Producto(String codigo, String nombre, double precio, int cantidad) {
         this.codigo = codigo;
@@ -100,10 +105,22 @@ public class Producto {
     }
 
     public boolean verificarCodigo(String codigo) {
-        for (Producto p : productos) {
-            if (p.getCodigo().toLowerCase().equals(codigo.toLowerCase())) {
-                return true;
+        try {
+            if (inventario.length() == 0) {
+                return false;
+
+            } else {
+                try (BufferedReader br = new BufferedReader(new FileReader(inventario))) {
+                    String linea;
+                    while ((linea = br.readLine()) != null) {
+                        if (linea.toLowerCase().contains(codigo.toLowerCase())) {
+                            return true;
+                        }
+                    }
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
         return false;
     }
@@ -133,7 +150,7 @@ public class Producto {
 
     // Método para buscar un producto en el archivo
     public void busquedaDeProducto(Scanner sc) {
-        
+
         boolean encontrado = false;
         System.out.print("\nCódigo del producto: ");
         String codProd = sc.nextLine();
@@ -202,7 +219,58 @@ public class Producto {
         }
     }
 
+    // Método para crear una copia de seguridad del inventario
     public void crearCopia() {
 
+        try {
+            if (inventario.length() == 0) {
+                System.out.println("\nNo hay nada registrado aún.");
+            } else {
+                try (BufferedReader br = new BufferedReader(new FileReader(inventario))) {
+                    String linea;
+
+                    while ((linea = br.readLine()) != null) {
+                        String[] partes = linea.split("; ");
+                        double precio = Double.parseDouble(partes[2]);
+                        int cantidad = Integer.parseInt(partes[3]);
+
+                        Producto producto = new Producto(partes[0], partes[1], precio, cantidad);
+
+                        try (ObjectOutputStream archivoSerializable = new ObjectOutputStream(
+                                new FileOutputStream("inventario.dat"))) {
+                            archivoSerializable.writeObject(producto);
+                        }
+                    }
+                }
+                System.out.println("\n¡Copia creada correctamente!");
+
+            }
+        } catch (IOException e) {
+            System.out.println("\nError: " + e.getMessage());
+
+        } catch (NumberFormatException e) {
+            System.out.println("\nError: " + e.getMessage());
+        }
+
+    }
+
+    // Método para recuperar una copia del inventario
+    public void recuperarCopia() {
+
+        try (ObjectInputStream lecturaSerializable = new ObjectInputStream(new FileInputStream("inventario.dat"))) {
+
+            while (true) {
+                Producto producto = (Producto) lecturaSerializable.readObject();
+                productos.add(producto);
+            }
+
+        } catch (IOException e) {
+            System.out.println("\nError: " + e.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            System.out.println("\nError: " + e.getMessage());
+        }
+
+        System.out.println("\n¡Copia restaurada completamente!");
     }
 }

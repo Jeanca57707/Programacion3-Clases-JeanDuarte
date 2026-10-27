@@ -46,12 +46,15 @@ public class Main {
                     case 4:
                        System.out.println("\nValor total: " + String.format("RD$%.2f", producto.valorInventario()));
                         break;
+
                     case 5:
-
+                        producto.crearCopia();
                         break;
+
                     case 6:
-
+                        producto.recuperarCopia();
                         break;
+                        
                     case 7:
                         System.out.println("Saliendo del programa...");
                         break;
