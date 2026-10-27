@@ -64,6 +64,11 @@ public class Producto implements Serializable {
         this.cantidad = cantidad;
     }
 
+    @Override 
+    public String toString(){
+        return getCodigo() + " | " +getNombre() + " | " +getPrecio() + " | " +getCantidad();
+    }
+
     // Método para registrar un producto y guardarlo en el archivo
     public void registrarProducto(Scanner sc) {
 
@@ -226,7 +231,10 @@ public class Producto implements Serializable {
             if (inventario.length() == 0) {
                 System.out.println("\nNo hay nada registrado aún.");
             } else {
-                try (BufferedReader br = new BufferedReader(new FileReader(inventario))) {
+                try (BufferedReader br = new BufferedReader(new FileReader(inventario));
+                        ObjectOutputStream archivoSerializable = new ObjectOutputStream(
+                                new FileOutputStream("inventario.dat"))) {
+
                     String linea;
 
                     while ((linea = br.readLine()) != null) {
@@ -236,10 +244,7 @@ public class Producto implements Serializable {
 
                         Producto producto = new Producto(partes[0], partes[1], precio, cantidad);
 
-                        try (ObjectOutputStream archivoSerializable = new ObjectOutputStream(
-                                new FileOutputStream("inventario.dat"))) {
-                            archivoSerializable.writeObject(producto);
-                        }
+                        archivoSerializable.writeObject(producto);
                     }
                 }
                 System.out.println("\n¡Copia creada correctamente!");
@@ -262,6 +267,7 @@ public class Producto implements Serializable {
             while (true) {
                 Producto producto = (Producto) lecturaSerializable.readObject();
                 productos.add(producto);
+                System.out.println(producto.toString());
             }
 
         } catch (IOException e) {
