@@ -23,7 +23,7 @@ public class RegistroVentasController {
     @FXML private Button btnVenta, btnCerrar;
 
     private static Producto productoElegido;
-    public static double ventasGeneradas = 0;
+   
 
     @FXML
     private void initialize() {
@@ -64,10 +64,8 @@ public class RegistroVentasController {
 
             productoElegido.setCantidadDis(productoElegido.getCantidadDis() - cantidad);
             importeGenerado = productoElegido.getPrecio() * cantidad;
-            ventasGeneradas += importeGenerado;
 
-            String venta = productoElegido.getNombre() + "\tcantidad vendida: " + cantidad +" \timporte generado: " 
-            + String.format("RD$%.2f", importeGenerado);
+            String venta = String.format("%-10s\t%s%d\t\t%sRD$%.2f", productoElegido.getNombre(), "Cantidad vendida: ", cantidad, "Importe generado: ", importeGenerado);
 
             Archivos.guardarVenta(venta);
             Archivos.actualizarProducto(productoElegido);

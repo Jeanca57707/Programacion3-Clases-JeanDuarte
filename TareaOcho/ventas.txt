@@ -1,5 +1,3 @@
-Audifonos /cantidad vendida: 3 /importe generado: RD$10290.00
-Mouse /cantidad vendida: 4 /importe generado: RD$5200.00
-Monitor	cantidad vendida: 1 	importe generado: RD$15500.00
-Mouse	cantidad vendida: 3 	importe generado: RD$3900.00
-Audifonos	cantidad vendida: 5 	importe generado: RD$17150.00
+Monitor   	Cantidad vendida: 3		Importe generado: RD$46500.00
+Audifonos 	Cantidad vendida: 5		Importe generado: RD$17150.00
+Mouse     	Cantidad vendida: 3		Importe generado: RD$3900.00
