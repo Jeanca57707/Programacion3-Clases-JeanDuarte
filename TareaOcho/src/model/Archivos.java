@@ -28,6 +28,8 @@ public class Archivos {
             return;
         } else {
             Datos.productos().clear();
+            Datos.nombresProductos().clear();
+            
             try (BufferedReader br = new BufferedReader(new FileReader(fileProductos))) {
                 String linea;
                 while ((linea = br.readLine()) != null) {
@@ -39,7 +41,7 @@ public class Archivos {
 
                     Producto producto = new Producto(codigo, partes[1], precio, cantidad);
                     Datos.productos().add(producto);
-                    Datos.nombresProductos().add(partes[1]);
+                    Datos.nombresProductos().add(producto.getNombre());
                 }
             } catch (IOException e) {
                 System.out.println("Error al leer el archivo: " + e.getMessage());

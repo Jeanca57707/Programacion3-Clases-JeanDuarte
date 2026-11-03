@@ -29,7 +29,7 @@ public class RegistroController {
     }
 
     @FXML
-    private void registar() {
+    private void registrar() {
         try {
             if (txtCodigo.getText().trim().isEmpty() || txtNombre.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty()
                     || txtCantidad.getText().trim().isEmpty()) {

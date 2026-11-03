@@ -6,7 +6,6 @@ import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -22,8 +21,6 @@ public class InventarioController {
 
     @FXML private Button btnCerrar;
 
-    @FXML private Label lblMensaje;
-
     @FXML 
     private void initialize(){
 
@@ -32,7 +29,7 @@ public class InventarioController {
         cantidadProd.setCellValueFactory(c -> (new ReadOnlyIntegerWrapper(c.getValue().getCantidadDis()).asObject()));
         nombreProd.setCellValueFactory(c -> (new ReadOnlyStringWrapper(c.getValue().getNombre())));
         precioProd.setCellValueFactory(c -> (new ReadOnlyDoubleWrapper(c.getValue().getPrecio())).asObject());
-        lblMensaje.setText("");
+        tablaProductos.setItems(Datos.productos());
     }
 
     @FXML 

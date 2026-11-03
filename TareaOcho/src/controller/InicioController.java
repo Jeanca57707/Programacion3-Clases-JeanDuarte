@@ -2,21 +2,19 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.Archivos;
 
 public class InicioController {
 
-    @FXML private Button btnRegistar, btnInventario, btnVentas, btnConsultar;
+    @FXML private Button btnRegistrar, btnInventario, btnVentas, btnConsultar;
 
     @FXML private void initialize(){
-        btnRegistar.setText("Registar Producto");
-        btnInventario.setText("Ver inventario");
-        btnVentas.setText("Realizar Venta");
-        btnConsultar.setText("Consultar ventas");
+        Archivos.leerArchivoProductos();
     }
 
     @FXML 
     private void registrar(){
-        Ventanas.abrir("registro", "Registro de Productos", btnRegistar.getScene().getWindow());
+        Ventanas.abrir("registro", "Registro de Productos", btnRegistrar.getScene().getWindow());
     }
 
     @FXML 

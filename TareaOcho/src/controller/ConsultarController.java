@@ -3,6 +3,7 @@ package controller;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import model.Archivos;
 import model.Datos;
 import javafx.fxml.FXML;
 
@@ -16,6 +17,7 @@ public class ConsultarController {
 
     @FXML 
     private void initialize(){
+        Archivos.leerArchivoVentas();
         ventas.setItems(Datos.ventas());
         lblTotalGenerado.setText("Total de dinero generado: " + String.format("RD$%.2f", RegistroVentasController.ventasGeneradas));
     }

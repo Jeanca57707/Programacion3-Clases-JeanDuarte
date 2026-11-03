@@ -16,14 +16,14 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="48.0" prefWidth="560.0" spacing="20.0">
          <children>
-            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrar" text="Registar Producto" />
-            <Button fx:id="btnInventario" mnemonicParsing="false" onAction="#inventario" text="Ver inventario" />
+            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="120.0" text="Registar Producto" />
+            <Button fx:id="btnInventario" mnemonicParsing="false" onAction="#inventario" prefHeight="25.0" prefWidth="120.0" text="Ver inventario" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="45.0" prefWidth="560.0" spacing="20.0">
          <children>
-            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#ventas" text="Realizar Venta" />
-            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" text="Consultar ventas" />
+            <Button fx:id="btnVentas" mnemonicParsing="false" onAction="#ventas" prefHeight="25.0" prefWidth="120.0" text="Realizar Venta" />
+            <Button fx:id="btnConsultar" mnemonicParsing="false" onAction="#consultar" prefHeight="25.0" prefWidth="120.0" text="Consultar ventas" />
          </children>
       </HBox>
    </children>

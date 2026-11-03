@@ -23,15 +23,18 @@ public class RegistroVentasController {
     @FXML private Button btnVenta, btnCerrar;
 
     private static Producto productoElegido;
-    public static double ventasGeneradas;
+    public static double ventasGeneradas = 0;
 
     @FXML
     private void initialize() {
         Archivos.leerArchivoProductos();
         productos.setItems(Datos.nombresProductos());
         txtCantidad.setPromptText("Ingrese la cantidad de productos deseados");
+        if(!productos.getItems().isEmpty()){
+            productos.getSelectionModel().selectFirst();
+        }
         lblMensaje.setText("");
-
+        lblImporteTotal.setText("");
     }
 
     @FXML
@@ -63,7 +66,7 @@ public class RegistroVentasController {
             importeGenerado = productoElegido.getPrecio() * cantidad;
             ventasGeneradas += importeGenerado;
 
-            String venta = productoElegido.getNombre() + "/cantidad vendida: " + cantidad +" /importe generado: " 
+            String venta = productoElegido.getNombre() + "\tcantidad vendida: " + cantidad +" \timporte generado: " 
             + String.format("RD$%.2f", importeGenerado);
 
             Archivos.guardarVenta(venta);
